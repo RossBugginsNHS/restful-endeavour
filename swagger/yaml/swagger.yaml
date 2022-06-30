@@ -3,7 +3,112 @@ info:
   version: '0.1'
   title: RESTful Endeavour Pattern
   description: ''
-paths: {}
+  
+tags:
+  - name: Bank Transfers - Endeavours 
+    description: Create new bank transfers
+paths:
+  /helloworld/hi:
+    get:
+      description: "Test"
+      tags:
+        -  Hello, World
+      responses:
+        '200':
+          description: OK   
+          
+  /my/bank-transfers/endeavours:
+    post:
+      tags:
+        -  Bank Transfers - Endeavours       
+      description: "Test"
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        -  Bank Transfers - Endeavours       
+      description: "Test"
+      responses:
+        '200':
+          description: OK        
+    
+  /my/bank-transfers/endeavours/{endeavour-id}:
+    get:
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string 
+      description: "Test"
+      responses:
+        '200':
+          description: OK        
+        '410':
+          description: Gone - this has been deleted
+    put:  
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string     
+      description: "Test"
+      responses:
+        '202':
+          description: Accepted       
+    patch:  
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string     
+      description: "Test"
+      responses:
+        '202':
+          description: Accepted                 
+    delete: 
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string     
+      description: "Test"
+      responses:
+        '202':
+          description: Accepted Delete Request        
+    
+  /my/bank-transfers/endeavours/{endeavour-id}/launch:
+    put: 
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string     
+      description: "Test"
+      responses:
+        '202':
+          description: Accepted     
+    
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
