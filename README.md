@@ -1,15 +1,15 @@
-# Endeavour Pattern
-Idempotent Promises
+# RESTful Endeavour Pattern
+Idempotent Promises by HTTP
 
 ## Aims
 - idempotency
 - non guaranteed promise pattern, aka an endeavour
 - RESTful(ish)
 - Optional stateful status
-- aspnetcore implementation
+- Maximum latency specifications
+
 
 ## A Promise, without the promise
-
 
 
 ## idempotency
