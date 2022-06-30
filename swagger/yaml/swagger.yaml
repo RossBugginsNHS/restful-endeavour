@@ -92,8 +92,45 @@ paths:
       responses:
         '202':
           description: Accepted Delete Request        
-    
-  /my/bank-transfers/endeavours/{endeavour-id}/launch:
+
+  /my/bank-transfers/endeavours/{endeavour-id}/versions:
+    get:     
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string    
+      description: "Test"
+      responses:
+        '200':
+          description: Ok  
+          
+  /my/bank-transfers/endeavours/{endeavour-id}/versions/{endeavour-version-id}:
+    get:     
+      tags:
+        -  Bank Transfers - Endeavours       
+      parameters: 
+        - in: path
+          name: endeavour-id
+          description: The User Id to access
+          required: true
+          schema:
+            type: string    
+        - in: path
+          name: endeavour-version-id
+          description: The version Id of the latest endeavour response that the client has received. Launch will fail if this is not the latest version - i.e. you can only try to launch with the correct latest version.
+          required: true
+          schema:
+            type: string               
+      description: "Test"
+      responses:
+        '200':
+          description: Ok     
+  /my/bank-transfers/endeavours/{endeavour-id}/versions/{endeavour-version-id}/launch:
     put: 
       tags:
         -  Bank Transfers - Endeavours       
@@ -103,11 +140,22 @@ paths:
           description: The User Id to access
           required: true
           schema:
-            type: string     
+            type: string    
+        - in: path
+          name: endeavour-version-id
+          description: The version Id of the latest endeavour response that the client has received. Launch will fail if this is not the latest version - i.e. you can only try to launch with the correct latest version.
+          required: true
+          schema:
+            type: string               
       description: "Test"
       responses:
         '202':
           description: Accepted     
+        '410':
+          description: Gone - this has been deleted          
+        '422':
+          description: Unprocessable - likely that the version id is not the latest version of this endeavour.
+
     
 servers:
   # Added by API Auto Mocking Plugin
