@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  version: '0.1'
+  title: RESTful Endeavour Pattern
+  description: ''
+paths: {}
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/RossBugginsNHS/RESTfulEndeavour/0.1
